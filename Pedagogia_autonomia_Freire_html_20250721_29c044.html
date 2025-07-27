@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedagogia da Autonomia - Paulo Freire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #333;
+            font-family: 'Open Sans', sans-serif;
+            padding-top: 100px;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 0 0 25px 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,20 50,80 100,100 L100,0 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .author-card {
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: none;
+            margin-bottom: 2rem;
+        }
+        
+        .author-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .author-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            background: linear-gradient(45deg, var(--secondary), #1a5276);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-img {
+            font-size: 6rem;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 3rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 24px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        
+        .concept-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border: none;
+            height: 100%;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .concept-header {
+            background: linear-gradient(135deg, var(--secondary), #1a5276);
+            color: white;
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .concept-header:hover {
+            background: linear-gradient(135deg, #1a5276, var(--secondary));
+        }
+        
+        .concept-body {
+            padding: 1.8rem;
+            background: #f8f9fa;
+        }
+        
+        .pill {
+            display: inline-block;
+            background: #e3f2fd;
+            color: var(--dark);
+            padding: 6px 15px;
+            border-radius: 30px;
+            margin: 5px 3px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .pill:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .quote {
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            background: linear-gradient(to right, rgba(231, 245, 255, 0.3), white);
+            margin: 2rem 0;
+            font-style: italic;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote::before {
+            content: """;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-size: 8rem;
+            color: rgba(52, 152, 219, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            margin: 4rem 0;
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--accent), var(--warning));
+        }
+        
+        /* Navbar styling */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 1.2rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand i {
+            margin-right: 10px;
+            font-size: 1.6rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: white;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Quiz styling */
+        .quiz-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: var(--secondary);
+            border-radius: 0 0 0 100%;
+            opacity: 0.1;
+        }
+        
+        .quiz-option {
+            padding: 1.2rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 3.5rem;
+        }
+        
+        .quiz-option::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            border: 2px solid #ced4da;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background: #f8f9fa;
+            border-color: var(--secondary);
+        }
+        
+        .quiz-option.selected {
+            background: #e3f2fd;
+            border-color: var(--secondary);
+            transform: translateX(8px);
+        }
+        
+        .quiz-option.selected::before {
+            border-color: var(--secondary);
+            background: var(--secondary);
+        }
+        
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: var(--success);
+        }
+        
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: var(--accent);
+        }
+        
+        .quiz-btn {
+            background: linear-gradient(135deg, var(--secondary), #1a5276);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quiz-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #1a5276, var(--secondary));
+        }
+        
+        .quiz-btn:disabled {
+            background: #ced4da;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .quiz-result {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-result::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--success), var(--secondary));
+        }
+        
+        .progress-bar {
+            height: 30px;
+            border-radius: 15px;
+            background: #e9ecef;
+            overflow: hidden;
+            margin: 1.8rem 0;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), #1a5276);
+            border-radius: 15px;
+            transition: width 1s ease;
+        }
+        
+        /* Game styling */
+        .game-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-container::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--warning));
+        }
+        
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin: 2.5rem auto;
+            max-width: 600px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid #e9ecef;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .game-card:hover::before {
+            opacity: 1;
+        }
+        
+        .game-card.flipped {
+            background: #e3f2fd;
+            border-color: var(--secondary);
+            transform: rotateY(180deg);
+        }
+        
+        .game-card.matched {
+            background: #d4edda;
+            border-color: var(--success);
+            transform: scale(0.95);
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .art-creation {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin-top: 1.2rem;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 500;
+        }
+        
+        .principle-detail {
+            background: white;
+            border-left: 4px solid var(--secondary);
+            padding: 1.2rem;
+            margin: 1.2rem 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .principle-icon {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .concept-expanded {
+            background: #f0f8ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--secondary);
+            position: relative;
+        }
+        
+        .concept-expanded::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233498db" opacity="0.1"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm3 0h-2V7h2v10z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(52, 152, 219, 0.1);
+            z-index: 0;
+        }
+        
+        .floating-icon:nth-child(1) {
+            top: 20%;
+            left: 5%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-icon:nth-child(2) {
+            top: 60%;
+            right: 7%;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .floating-icon:nth-child(3) {
+            bottom: 20%;
+            left: 12%;
+            animation: float 12s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); }
+            50% { transform: translateY(-20px) translateX(10px) rotate(10deg); }
+            100% { transform: translateY(0) translateX(0) rotate(0deg); }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .game-board {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 0;
+            }
+            
+            .game-board {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .game-card {
+                height: 120px;
+            }
+            
+            .quiz-container, .game-container, .quiz-result {
+                padding: 1.8rem;
+            }
+            
+            .floating-icon {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header {
+                border-radius: 0 0 20px 20px;
+            }
+            
+            .game-board {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+            }
+            
+            .game-card {
+                height: 100px;
+            }
+            
+            .navbar-brand span {
+                display: none;
+            }
+            
+            .navbar-brand i {
+                margin-right: 0;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-book-open"></i>
+                <span>Pedagogia da Autonomia</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#author"><i class="fas fa-user-graduate"></i> Autor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#timeline"><i class="fas fa-timeline"></i> Fundamentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#principles"><i class="fas fa-star"></i> Princípios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#quiz"><i class="fas fa-question-circle"></i> Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#game"><i class="fas fa-puzzle-piece"></i> Jogo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="header text-center">
+        <div class="floating-icon">
+            <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="fas fa-book"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        
+        <div class="container header-content">
+            <h1 class="display-4 fw-bold mb-3"><i class="fas fa-book-open me-3"></i>Pedagogia da Autonomia</h1>
+            <p class="lead mb-4">Saberes necessários à prática educativa</p>
+            <p class="h3 mb-4">Paulo Freire</p>
+            <div class="mt-4">
+                <span class="badge bg-light text-dark fs-5 fw-normal p-2 me-2 mb-2">Educação Libertadora</span>
+                <span class="badge bg-light text-dark fs-5 fw-normal p-2 me-2 mb-2">Prática Docente</span>
+                <span class="badge bg-light text-dark fs-5 fw-normal p-2 mb-2">Autonomia do Educando</span>
+            </div>
+            <div class="art-creation animate mt-4">
+                Arte criação: Antonio Marques, email: antonio.marques.fr@gmail.com
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Author Information -->
+        <div class="row mb-5" id="author">
+            <div class="col-lg-8">
+                <div class="author-card">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <div class="author-img-container">
+                                <i class="fas fa-user-graduate author-img"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="p-4">
+                                <h3 class="fw-bold mb-3">Paulo Freire (1921-1997)</h3>
+                                <p class="text-muted mb-3">Patrono da Educação Brasileira, filósofo e educador reconhecido internacionalmente por seu trabalho na pedagogia crítica.</p>
+                                <p class="mb-4">Freire revolucionou a educação ao propor métodos que valorizam o conhecimento prévio do aluno e a contextualização do aprendizado, combatendo a "educação bancária" onde o professor apenas deposita conhecimento no estudante.</p>
+                                <div class="d-flex flex-wrap">
+                                    <span class="pill"><i class="fas fa-graduation-cap me-1"></i>Pedagogia do Oprimido</span>
+                                    <span class="pill"><i class="fas fa-globe-americas me-1"></i>Educação Popular</span>
+                                    <span class="pill"><i class="fas fa-comments me-1"></i>Diálogo Pedagógico</span>
+                                    <span class="pill"><i class="fas fa-brain me-1"></i>Conscientização</span>
+                                    <span class="pill"><i class="fas fa-hands-helping me-1"></i>Libertação</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h4 class="fw-bold border-bottom pb-3 mb-3">Conceitos-Chave</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-transparent d-flex align-items-center py-3">
+                            <i class="fas fa-arrow-right text-primary me-3 fs-5"></i>
+                            <span>Educação como prática da liberdade</span>
+                        </li>
+                        <li class="list-group-item bg-transparent d-flex align-items-center py-3">
+                            <i class="fas fa-arrow-right text-primary me-3 fs-5"></i>
+                            <span>Diálogo como essência da educação</span>
+                        </li>
+                        <li class="list-group-item bg-transparent d-flex align-items-center py-3">
+                            <i class="fas fa-arrow-right text-primary me-3 fs-5"></i>
+                            <span>Conscientização e autonomia</span>
+                        </li>
+                        <li class="list-group-item bg-transparent d-flex align-items-center py-3">
+                            <i class="fas fa-arrow-right text-primary me-3 fs-5"></i>
+                            <span>Crítica à educação bancária</span>
+                        </li>
+                        <li class="list-group-item bg-transparent d-flex align-items-center py-3">
+                            <i class="fas fa-arrow-right text-primary me-3 fs-5"></i>
+                            <span>Respeito ao saber do educando</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <button class="btn btn-outline-primary w-100 py-2" data-bs-toggle="modal" data-bs-target="#glossaryModal">
+                            <i class="fas fa-book me-2"></i>Ver Glossário de Termos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="row mb-5" id="timeline">
+            <div class="col-12">
+                <h2 class="text-center mb-4 fw-bold">Fundamentos da Pedagogia Freireana</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-balance-scale me-2 text-primary"></i>Educação Bancária vs. Problematizadora</h4>
+                        <p>Freire critica o modelo de educação onde o professor é o detentor do conhecimento que "deposita" informações nos alunos. Propõe em seu lugar a educação problematizadora, onde educador e educando aprendem juntos através do diálogo.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-user-graduate me-2 text-primary"></i>Autonomia do Educando</h4>
+                        <p>O processo educativo deve desenvolver no educando a capacidade de autonomia, crítica e responsabilidade. O professor não deve transferir conhecimento, mas criar condições para sua produção ou construção pelo aluno.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-search me-2 text-primary"></i>Inacabamento Humano</h4>
+                        <p>O ser humano é inacabado e consciente de seu inacabamento, o que o torna um ser de busca, curiosidade e permanente aprendizado. Esta condição é a base da educabilidade humana.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-hands-helping me-2 text-primary"></i>Respeito ao Saber Popular</h4>
+                        <p>O educador deve respeitar e valorizar o conhecimento que os educandos trazem de suas experiências de vida, usando-o como ponto de partida para a construção de novos saberes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- Core Principles Cards -->
+        <div class="row mb-5" id="principles">
+            <div class="col-md-4 mb-4">
+                <div class="concept-card h-100">
+                    <div class="concept-header" data-bs-toggle="collapse" href="#chapter1">
+                        <i class="fas fa-1 me-3 fs-3"></i> Capítulo 1: Não há docência sem discência
+                    </div>
+                    <div class="collapse show" id="chapter1">
+                        <div class="concept-body">
+                            <p class="mb-4">A relação educativa é dialógica e recíproca. Ensinar e aprender são processos indissociáveis onde ambos, educador e educando, se transformam.</p>
+                            
+                            <div class="concept-expanded mt-3">
+                                <h5><i class="fas fa-lightbulb text-warning me-2"></i>Princípios Fundamentais</h5>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige rigorosidade metódica e pesquisa</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige respeito aos saberes do educando</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige crítica e estética na decência</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige reflexão crítica sobre a prática</div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap mt-4">
+                                <span class="pill"><i class="fas fa-flask me-1"></i> Pesquisa</span>
+                                <span class="pill"><i class="fas fa-star me-1"></i> Estética</span>
+                                <span class="pill"><i class="fas fa-sync-alt me-1"></i> Reflexão</span>
+                                <span class="pill"><i class="fas fa-users me-1"></i> Diálogo</span>
+                            </div>
+                            <button class="btn btn-outline-primary mt-4 w-100 py-2" data-bs-toggle="modal" data-bs-target="#principleModal" data-title="Docência e Discência" data-content="O ato de ensinar está intrinsecamente ligado ao ato de aprender. Não existe docência (ato de ensinar) sem discência (ato de aprender). O educador também aprende ao ensinar, e o educando ensina ao aprender. Esta relação dialógica é fundamental para uma educação transformadora.">
+                                <i class="fas fa-info-circle me-1"></i> Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="concept-card h-100">
+                    <div class="concept-header" data-bs-toggle="collapse" href="#chapter2">
+                        <i class="fas fa-2 me-3 fs-3"></i> Capítulo 2: Ensinar não é transferir conhecimento
+                    </div>
+                    <div class="collapse show" id="chapter2">
+                        <div class="concept-body">
+                            <p class="mb-4">O educador não transfere conhecimento, mas cria possibilidades para sua produção. Ensinar exige reconhecimento do inacabamento humano e respeito à autonomia do educando.</p>
+                            
+                            <div class="concept-expanded mt-3">
+                                <h5><i class="fas fa-lightbulb text-warning me-2"></i>Princípios Fundamentais</h5>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige consciência do inacabamento</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige reconhecimento da identidade cultural</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige liberdade e autoridade</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige tomada consciente de decisões</div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap mt-4">
+                                <span class="pill"><i class="fas fa-universal-access me-1"></i> Autonomia</span>
+                                <span class="pill"><i class="fas fa-sun me-1"></i> Esperança</span>
+                                <span class="pill"><i class="fas fa-question me-1"></i> Curiosidade</span>
+                                <span class="pill"><i class="fas fa-brain me-1"></i> Consciência</span>
+                            </div>
+                            <button class="btn btn-outline-primary mt-4 w-100 py-2" data-bs-toggle="modal" data-bs-target="#principleModal" data-title="Autonomia do Educando" data-content="Respeitar a autonomia do educando significa reconhecê-lo como sujeito de seu processo de aprendizagem, com direito a voz, escolha e construção de seu conhecimento. O professor deve criar condições para que o aluno desenvolva sua capacidade crítica e autônoma, tornando-se autor de sua própria história.">
+                                <i class="fas fa-info-circle me-1"></i> Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="concept-card h-100">
+                    <div class="concept-header" data-bs-toggle="collapse" href="#chapter3">
+                        <i class="fas fa-3 me-3 fs-3"></i> Capítulo 3: Ensinar é uma especificidade humana
+                    </div>
+                    <div class="collapse show" id="chapter3">
+                        <div class="concept-body">
+                            <p class="mb-4">A educação é uma prática ética e estética que exige comprometimento, compreensão da educação como intervenção no mundo, e amorosidade para com os educandos.</p>
+                            
+                            <div class="concept-expanded mt-3">
+                                <h5><i class="fas fa-lightbulb text-warning me-2"></i>Princípios Fundamentais</h5>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige comprometimento e amorosidade</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige apreensão da realidade</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige alegria e esperança</div>
+                                </div>
+                                <div class="principle-detail">
+                                    <i class="fas fa-check-circle text-success principle-icon"></i>
+                                    <div>Ensinar exige a convicção de que a mudança é possível</div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap mt-4">
+                                <span class="pill"><i class="fas fa-people-arrows me-1"></i> Diálogo</span>
+                                <span class="pill"><i class="fas fa-chess me-1"></i> Decisão</span>
+                                <span class="pill"><i class="fas fa-heart me-1"></i> Amorosidade</span>
+                                <span class="pill"><i class="fas fa-handshake me-1"></i> Compromisso</span>
+                            </div>
+                            <button class="btn btn-outline-primary mt-4 w-100 py-2" data-bs-toggle="modal" data-bs-target="#principleModal" data-title="Amorosidade na Educação" data-content="Querer bem aos educandos é condição fundamental para a prática educativa. A amorosidade não é sentimentalismo, mas reconhecimento do outro como sujeito de direitos e dignidade. O afeto na relação pedagógica favorece o desenvolvimento da autonomia e da crítica, criando um ambiente propício para a aprendizagem significativa.">
+                                <i class="fas fa-info-circle me-1"></i> Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Quotes -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="text-center mb-4 fw-bold">Citações Fundamentais</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="quote">
+                            <p class="mb-0">"Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção."</p>
+                            <footer class="blockquote-footer mt-3">Capítulo 2</footer>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="quote">
+                            <p class="mb-0">"Não há docência sem discência; as duas se explicam e seus sujeitos, apesar das diferenças que os conotam, não se reduzem à condição de objeto, um do outro."</p>
+                            <footer class="blockquote-footer mt-3">Capítulo 1</footer>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="quote">
+                            <p class="mb-0">"A educação é um ato de amor, por isso, um ato de coragem. Não pode temer o debate. A análise da realidade. Não pode fugir à discussão criadora, sob pena de ser uma farsa."</p>
+                            <footer class="blockquote-footer mt-3">Capítulo 3</footer>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="quote">
+                            <p class="mb-0">"A autonomia, enquanto amadurecimento do ser para si, é processo, é vir a ser. Não ocorre em data marcada."</p>
+                            <footer class="blockquote-footer mt-3">Capítulo 2</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quiz Section -->
+        <div class="row mb-5" id="quiz">
+            <div class="col-12">
+                <h2 class="text-center mb-4 fw-bold">Quiz: Teste seu conhecimento</h2>
+                <p class="text-center mb-4">Responda as perguntas abaixo sobre os conceitos de Paulo Freire:</p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-question mb-4">
+                        <h5><i class="fas fa-question-circle me-2 text-primary"></i> O que Paulo Freire critica como "educação bancária"?</h5>
+                        <div class="quiz-option" data-correct="b">
+                            a) Educação que prioriza a memorização de conteúdos
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            b) Modelo onde o professor deposita conhecimento no aluno, que é passivo
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            c) Educação que não utiliza recursos tecnológicos
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            d) Sistema educacional que não oferece ensino superior
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question mb-4">
+                        <h5><i class="fas fa-question-circle me-2 text-primary"></i> Qual é o conceito de "inacabamento humano" em Freire?</h5>
+                        <div class="quiz-option" data-correct="b">
+                            a) A ideia de que os seres humanos são imperfeitos e por isso não podem aprender
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            b) A condição ontológica do ser humano de estar sempre em processo de se tornar
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            c) A falta de recursos humanos na educação
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            d) A incompletude das instituições educacionais
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question mb-4">
+                        <h5><i class="fas fa-question-circle me-2 text-primary"></i> O que Freire entende por "autonomia do educando"?</h5>
+                        <div class="quiz-option" data-correct="b">
+                            a) O estudante deve estudar sozinho, sem a ajuda do professor
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            b) A capacidade do educando de pensar criticamente e ser responsável por sua aprendizagem
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            c) O direito do aluno de escolher o que quer aprender, sem seguir um currículo
+                        </div>
+                        <div class="quiz-option" data-correct="b">
+                            d) A independência financeira do estudante
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button id="check-answers" class="quiz-btn">
+                            <i class="fas fa-check-circle me-2"></i>Verificar Respostas
+                        </button>
+                    </div>
+                    
+                    <div class="quiz-result" id="quiz-result">
+                        <h4 class="mb-4">Seu Resultado:</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <h5 id="score-text" class="mt-4">Você acertou <span id="score" class="fw-bold">0</span> de 3 perguntas</h5>
+                        <p id="feedback" class="mt-3 fs-5"></p>
+                        <button id="restart-quiz" class="quiz-btn mt-4">
+                            <i class="fas fa-redo me-2"></i>Tentar Novamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Section -->
+        <div class="row mb-5" id="game">
+            <div class="col-12">
+                <h2 class="text-center mb-4 fw-bold">Jogo: Associe os Conceitos</h2>
+                <p class="text-center mb-4">Encontre os pares de conceitos relacionados à pedagogia de Paulo Freire:</p>
+                
+                <div class="game-container">
+                    <div class="game-board" id="game-board">
+                        <!-- Game cards will be generated by JavaScript -->
+                    </div>
+                    
+                    <div class="d-flex justify-content-center mt-4">
+                        <button id="restart-game" class="quiz-btn">
+                            <i class="fas fa-redo me-2"></i>Reiniciar Jogo
+                        </button>
+                    </div>
+                    
+                    <div id="game-result" class="mt-4 text-center p-4" style="display: none;">
+                        <h4 class="text-success fw-bold"><i class="fas fa-trophy me-2"></i>Parabéns!</h4>
+                        <p class="fs-5 mt-3">Você completou o jogo com sucesso!</p>
+                        <div class="mt-4">
+                            <i class="fas fa-star text-warning fs-1"></i>
+                            <i class="fas fa-star text-warning fs-1 mx-3"></i>
+                            <i class="fas fa-star text-warning fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- Application in Education -->
+        <div class="row mb-5">
+            <div class="col-lg-6 mb-4">
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h3 class="fw-bold border-bottom pb-3 mb-3"><i class="fas fa-ban text-danger me-2"></i>Educação Bancária</h3>
+                    <p>Modelo tradicional criticado por Freire onde:</p>
+                    <ul class="mt-3">
+                        <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i>Professor é o detentor do conhecimento</li>
+                        <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i>Aluno é visto como "conta vazia" a ser preenchida</li>
+                        <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i>Conhecimento é "depositado" no estudante</li>
+                        <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i>Não há diálogo ou reflexão crítica</li>
+                        <li><i class="fas fa-times-circle text-danger me-2"></i>Foca na memorização, não na compreensão</li>
+                    </ul>
+                    <div class="alert alert-warning mt-4">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Este modelo mantém relações de poder e impede o desenvolvimento da autonomia e pensamento crítico.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h3 class="fw-bold border-bottom pb-3 mb-3"><i class="fas fa-check-circle text-success me-2"></i>Educação Libertadora</h3>
+                    <p>Modelo proposto por Freire que promove:</p>
+                    <ul class="mt-3">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Diálogo entre educador e educando</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Valorização do conhecimento prévio do aluno</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Contextualização da aprendizagem</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Desenvolvimento do pensamento crítico</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Conscientização e autonomia</li>
+                    </ul>
+                    <div class="alert alert-success mt-4">
+                        <i class="fas fa-lightbulb me-2"></i>Este modelo transforma a educação em ferramenta de libertação e desenvolvimento humano integral.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4 class="fw-bold mb-3">Pedagogia da Autonomia</h4>
+                    <p class="mb-3">Saberes necessários à prática educativa</p>
+                    <p class="mb-3"><strong>Referência completa:</strong></p>
+                    <p>FREIRE, Paulo. Pedagogia da autonomia: saberes necessários à prática educativa. 25. ed. São Paulo: Paz e Terra, 1996.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3">Princípios Fundamentais</h5>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">Ética</span>
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">Respeito</span>
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">Autonomia</span>
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">Diálogo</span>
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">Reflexão Crítica</span>
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">Comprometimento</span>
+                    </div>
+                    <div class="mt-4">
+                        <p class="mb-0"><strong>Arte criação:</strong> Antonio Marques</p>
+                        <p class="mb-0">email: antonio.marques.fr@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-4 border-top border-light">
+                <p class="mb-0">Desenvolvido para fins educacionais - Baseado na obra de Paulo Freire</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Glossary Modal -->
+    <div class="modal fade" id="glossaryModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="fas fa-book me-2"></i>Glossário de Termos</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-primary">Educação Bancária</h6>
+                                <p class="mt-2">Modelo tradicional onde o professor "deposita" conhecimento no aluno, que é visto como receptáculo passivo.</p>
+                            </div>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-primary">Conscientização</h6>
+                                <p class="mt-2">Processo de compreensão crítica da realidade social, política e econômica que leva à ação transformadora.</p>
+                            </div>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-primary">Inacabamento Humano</h6>
+                                <p class="mt-2">Condição ontológica do ser humano que, consciente de sua incompletude, busca permanentemente aprender e se desenvolver.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-primary">Dialogicidade</h6>
+                                <p class="mt-2">Princípio fundamental da educação freireana que estabelece a relação horizontal entre educador e educando através do diálogo.</p>
+                            </div>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-primary">Autonomia</h6>
+                                <p class="mt-2">Capacidade do educando de pensar criticamente, fazer escolhas e assumir responsabilidades por sua aprendizagem e ações.</p>
+                            </div>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-primary">Práxis Educativa</h6>
+                                <p class="mt-2">União indissociável entre teoria e prática na ação educativa, onde reflexão e ação se alimentam mutuamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Principle Modal -->
+    <div class="modal fade" id="principleModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="principleModalTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="principleModalContent">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Principle Modal Interaction
+        const principleModal = document.getElementById('principleModal');
+        principleModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget;
+            const title = button.getAttribute('data-title');
+            const content = button.getAttribute('data-content');
+            
+            const modalTitle = principleModal.querySelector('.modal-title');
+            const modalContent = principleModal.querySelector('.modal-body');
+            
+            modalTitle.textContent = title;
+            modalContent.innerHTML = `
+                <div class="p-4">
+                    <p class="fs-5">${content}</p>
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-lightbulb me-2"></i>Este princípio enfatiza a relação dialógica e respeitosa entre educador e educando como base para uma educação transformadora.
+                    </div>
+                </div>
+            `;
+        });
+        
+        // Quiz functionality
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from siblings
+                this.parentElement.querySelectorAll('.quiz-option').forEach(el => {
+                    el.classList.remove('selected');
+                });
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+        
+        // Check answers button
+        document.getElementById('check-answers').addEventListener('click', function() {
+            const questions = document.querySelectorAll('.quiz-question');
+            let correctCount = 0;
+            
+            questions.forEach(question => {
+                const selectedOption = question.querySelector('.quiz-option.selected');
+                if (selectedOption && selectedOption.getAttribute('data-correct') === 'b') {
+                    selectedOption.classList.add('correct');
+                    correctCount++;
+                } else if (selectedOption) {
+                    selectedOption.classList.add('incorrect');
+                }
+            });
+            
+            // Show results
+            const quizResult = document.getElementById('quiz-result');
+            const scoreElement = document.getElementById('score');
+            const progressFill = document.getElementById('progress-fill');
+            const feedbackElement = document.getElementById('feedback');
+            
+            scoreElement.textContent = correctCount;
+            const percentage = (correctCount / questions.length) * 100;
+            progressFill.style.width = `${percentage}%`;
+            
+            if (correctCount === questions.length) {
+                feedbackElement.textContent = "Excelente! Você demonstra um conhecimento excepcional da pedagogia de Paulo Freire.";
+                feedbackElement.className = "text-success fw-bold";
+            } else if (correctCount >= questions.length / 2) {
+                feedbackElement.textContent = "Bom trabalho! Você tem um bom entendimento, mas pode aprofundar mais nos conceitos.";
+                feedbackElement.className = "text-primary fw-bold";
+            } else {
+                feedbackElement.textContent = "Continue estudando! A pedagogia de Paulo Freire tem muito a contribuir com sua prática educativa.";
+                feedbackElement.className = "text-warning fw-bold";
+            }
+            
+            quizResult.style.display = 'block';
+            document.getElementById('check-answers').disabled = true;
+            
+            // Scroll to results
+            quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+        
+        // Restart quiz
+        document.getElementById('restart-quiz').addEventListener('click', function() {
+            // Reset options
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            // Hide results
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('check-answers').disabled = false;
+            document.getElementById('progress-fill').style.width = '0%';
+        });
+        
+        // Memory game functionality
+        const concepts = [
+            { term: "Educação Bancária", definition: "Modelo tradicional onde o professor deposita conhecimento no aluno passivo" },
+            { term: "Autonomia", definition: "Capacidade do educando de pensar criticamente e ser responsável por sua aprendizagem" },
+            { term: "Dialogicidade", definition: "Relação horizontal entre educador e educando através do diálogo" },
+            { term: "Conscientização", definition: "Processo de compreensão crítica da realidade que leva à ação transformadora" },
+            { term: "Inacabamento Humano", definition: "Condição ontológica do ser humano de estar sempre em processo de se tornar" },
+            { term: "Práxis Educativa", definition: "União indissociável entre teoria e prática na ação educativa" }
+        ];
+        
+        const gameBoard = document.getElementById('game-board');
+        let flippedCards = [];
+        let matchedPairs = 0;
+        
+        // Initialize game
+        function initGame() {
+            gameBoard.innerHTML = '';
+            flippedCards = [];
+            matchedPairs = 0;
+            document.getElementById('game-result').style.display = 'none';
+            
+            // Duplicate and shuffle concepts
+            const gameCards = [...concepts, ...concepts];
+            shuffleArray(gameCards);
+            
+            // Create cards
+            gameCards.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'game-card';
+                cardElement.dataset.index = index;
+                cardElement.dataset.term = card.term;
+                cardElement.dataset.definition = card.definition;
+                cardElement.innerHTML = '<i class="fas fa-question"></i>';
+                
+                cardElement.addEventListener('click', flipCard);
+                gameBoard.appendChild(cardElement);
+            });
+        }
+        
+        // Shuffle array function
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        
+        // Flip card function
+        function flipCard() {
+            if (flippedCards.length < 2 && !this.classList.contains('flipped') && !this.classList.contains('matched')) {
+                this.classList.add('flipped');
+                this.innerHTML = `<strong>${this.dataset.term}</strong><br><small>${this.dataset.definition}</small>`;
+                flippedCards.push(this);
+                
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 800);
+                }
+            }
+        }
+        
+        // Check if cards match
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            
+            if (card1.dataset.term === card2.dataset.term) {
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+                matchedPairs++;
+                
+                if (matchedPairs === concepts.length) {
+                    setTimeout(() => {
+                        document.getElementById('game-result').style.display = 'block';
+                        document.getElementById('game-result').scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                }
+            } else {
+                setTimeout(() => {
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                    card1.innerHTML = '<i class="fas fa-question"></i>';
+                    card2.innerHTML = '<i class="fas fa-question"></i>';
+                }, 1000);
+            }
+            
+            flippedCards = [];
+        }
+        
+        // Restart game
+        document.getElementById('restart-game').addEventListener('click', initGame);
+        
+        // Initialize game and scroll animations
+        window.addEventListener('DOMContentLoaded', () => {
+            initGame();
+            
+            // Initialize animations
+            document.querySelectorAll('.animate').forEach(el => {
+                el.style.animationDelay = `${Math.random() * 0.5}s`;
+            });
+        });
+        
+        // Smooth scrolling for navbar links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
